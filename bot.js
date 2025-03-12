@@ -1,4 +1,4 @@
-// needs: nodejs, discord.js (npm i discord.js), bot token
+// joyclens on github
 
 const { Client, GatewayIntentBits, ActivityType } = require('discord.js');
 require('dotenv').config();
