@@ -1,31 +1,40 @@
-  // needs: nodejs, discord.js (npm i discord.js), bot token
+// needs: nodejs, discord.js (npm i discord.js), bot token
 
-  const { Client, GatewayIntentBits } = require('discord.js');
-  const client = new Client({
-      intents: [
-          GatewayIntentBits.Guilds,
-          GatewayIntentBits.GuildMessages,
-          GatewayIntentBits.MessageContent,
-          GatewayIntentBits.GuildMembers,
-      ]
-  });
+const { Client, GatewayIntentBits, ActivityType } = require('discord.js');
+require('dotenv').config();
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
+    ]
+});
 
-  // put your bot token here
-  const token = 'put-token-here';
+const token = process.env.token;
 
-  // bot startup
-  client.once('ready', () => {
-      console.log('bot is now online');
-      console.log(`logged in as: ${client.user.tag}`);
+client.once('ready', () => {
+    console.log('bot is now online');
+    console.log(`logged in as: ${client.user.tag}`);
     
-      // bot status
-      client.user.setActivity('hey!', { type: 'PLAYING' });
-  });
+    // status
+    // types:
+    // - playing         -> { type: ActivityType.Playing }
+    // - streaming       -> { type: ActivityType.Streaming, url: 'twitch-url' }
+    // - listening       -> { type: ActivityType.Listening }
+    // - watching        -> { type: ActivityType.Watching }
+    // - competing       -> { type: ActivityType.Competing }
+    // - custom          -> { type: ActivityType.Custom }
+    
+    // example: client.user.setActivity('music', { type: ActivityType.Listening });
+    // example: client.user.setActivity('Twitch', { type: ActivityType.Streaming, url: 'https://twitch.tv/username' });
+    
+    client.user.setActivity('hey!', { type: ActivityType.Playing });
+    console.log(`bot status: ${ActivityType.Playing} - ${client.user.presence.activities[0].name}`);
+});
 
-  // error stuff
-  client.on('error', error => {
-      console.log(error);
-  });
+client.on('error', error => {
+    console.log(error);
+});
 
-  // start the bot
-  client.login(token);
+client.login(token);
