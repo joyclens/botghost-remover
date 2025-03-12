@@ -23,7 +23,6 @@ client.once('ready', () => {
     // - listening       -> { type: ActivityType.Listening }
     // - watching        -> { type: ActivityType.Watching }
     // - competing       -> { type: ActivityType.Competing }
-    // - custom          -> { type: ActivityType.Custom }
     
     // example: client.user.setActivity('music', { type: ActivityType.Listening });
     // example: client.user.setActivity('Twitch', { type: ActivityType.Streaming, url: 'https://twitch.tv/username' });
