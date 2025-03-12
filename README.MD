@@ -32,13 +32,17 @@ available status types:
 - listening: `ActivityType.Listening`
 - watching: `ActivityType.Watching`
 - competing: `ActivityType.Competing`
-- custom: `ActivityType.Custom`
 
 examples:
 ```js
 client.user.setActivity('music', { type: ActivityType.Listening });
-client.user.setActivity('twitch', { type: ActivityType.Streaming, url: 'https://twitch.tv/username' });
+client.user.setActivity('twitch', { type: ActivityType.Streaming, url: 'https://twitch.tv/username' }); // for twitch you can just use "twitch.tv/directory" - this is a homepage for twitch
+
+
 ```
+[discord.js docs](https://discord.js.org/docs/packages/discord.js/14.18.0/ActivityType:Enum)
+[discord-api-types docs](https://discord-api-types.dev/api/discord-api-types-v10/enum/ActivityType#Competing)
+
 
 ## requirements
 - node.js
