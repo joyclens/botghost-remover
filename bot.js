@@ -14,8 +14,7 @@ const client = new Client({
 const token = process.env.token;
 
 client.once('ready', () => {
-    console.log('bot is now online');
-    console.log(`logged in as: ${client.user.tag}`);
+    console.log(`logged in as: ${client.user.tag} - ${client.user.id}`);
     
     // status
     // types:
@@ -29,7 +28,7 @@ client.once('ready', () => {
     // example: client.user.setActivity('music', { type: ActivityType.Listening });
     // example: client.user.setActivity('Twitch', { type: ActivityType.Streaming, url: 'https://twitch.tv/username' });
     
-    client.user.setActivity('hey!', { type: ActivityType.Playing });
+    client.user.setActivity('joyclens on github', { type: ActivityType.Playing });
     console.log(`bot status: ${ActivityType.Playing} - ${client.user.presence.activities[0].name}`);
 });
 
