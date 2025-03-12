@@ -1,39 +1,49 @@
-# botghost status remover
-a simple discord bot that changes ur bots status
+## botghost status remover
+a simple discord bot that changes a bots status
 
 ## setup
-1. download the files:
-   - click the green "code" button above
-   - select "download zip"
-   - extract the zip file to a folder
+1. install node.js from [nodejs.org](https://nodejs.org/)
 
-2. install required software:
-   - download and install node.js from [nodejs.org](https://nodejs.org/)
-   - make sure to select "add to path" during installation
+2. clone and setup:
+```
+npm install discord.js dotenv
+echo "token=your_token_here" > .env
+```
 
-3. set up the bot:
-   - open the extracted folder
-   - open a terminal/command prompt in that folder
-   - run `npm install discord.js`
-   - create a new file called `.env`
-   - add your bot token like this: `token=your_token_here`
+3. get bot token:
+- create app at [discord developer portal](https://discord.com/developers/applications)
+- add a bot
+- copy token to .env file
 
-4. get your bot token:
-   - go to [discord developer portal](https://discord.com/developers/applications)
-   - create a new application
-   - go to the "bot" section
-   - click "add bot"
-   - copy the token
+4. start:
+```
+npm start
+```
 
-5. start the bot:
-   - in the terminal/command prompt
-   - run `npm start`
-   - the bot should now be online!
+## status customization
+to change the bot's status, edit bot.js and modify the following line:
+```js
+client.user.setActivity('joyclens on github', { type: ActivityType.Playing });
+```
+
+available status types:
+- playing: `ActivityType.Playing`
+- streaming: `ActivityType.Streaming` (requires twitch url)
+- listening: `ActivityType.Listening`
+- watching: `ActivityType.Watching`
+- competing: `ActivityType.Competing`
+- custom: `ActivityType.Custom`
+
+examples:
+```js
+client.user.setActivity('music', { type: ActivityType.Listening });
+client.user.setActivity('twitch', { type: ActivityType.Streaming, url: 'https://twitch.tv/username' });
+```
 
 ## requirements
 - node.js
 - discord.js
-- bot token from [discord developer portal](https://discord.com/developers/applications)
+- bot token
 
 ## license
 mit license
