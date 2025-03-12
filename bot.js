@@ -29,7 +29,7 @@ client.once('ready', () => {
     // example: client.user.setActivity('Twitch', { type: ActivityType.Streaming, url: 'https://twitch.tv/username' });
     
     client.user.setActivity('joyclens on github', { type: ActivityType.Playing });
-    console.log(`bot status: ${ActivityType.Playing} - ${client.user.presence.activities[0].name}`);
+    console.log(`status was updated to: ${client.user.presence.activities[0].name}`);
 });
 
 client.on('error', error => {
